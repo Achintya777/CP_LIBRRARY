@@ -15,7 +15,7 @@ void factorial(){
     fact[i]=fact[i-1]*i%M ;
 }
 ll C(ll n,ll r){
-	if(n<0 || r<0 || n<r)return 0 ;
+if(n<0 || r<0 || n<r)return 0 ;
 	return fact[n]*fact_inv[r]%M*fact_inv[n-r]%M ;
 }
 ll pM(ll b,ll p){
