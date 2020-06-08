@@ -1,3 +1,4 @@
+// Segment Tree with lazy propagation for range sum and range query 
 int n ;
 ll st[4*mxN+1], lz[4*mxN+1];
 void app(int i, ll x, int l, int r) {
