@@ -10,9 +10,9 @@ void factorial_inv(){
     fact_inv[i]=fact_inv[i-1]*iv[i]%M ;
 }
 void factorial(){
-	fact[0]=fact[1]=1 ;
-	for(int i=2;i<mxN;i++)  
-		fact[i]=fact[i-1]*i%M ;
+  fact[0]=fact[1]=1 ;
+  for(int i=2;i<mxN;i++)  
+    fact[i]=fact[i-1]*i%M ;
 }
 ll C(ll n,ll r){
 	if(n<0 || r<0 || n<r)return 0 ;
