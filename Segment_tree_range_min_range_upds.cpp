@@ -1,3 +1,4 @@
+// segment tree with lazy propagation to handle range minimmum queries and range updates 
 int n ;
 ll st[4*mxN]={}, lz[4*mxN]={};
 void app(int i,ll x){
