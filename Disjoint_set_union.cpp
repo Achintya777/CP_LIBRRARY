@@ -18,3 +18,21 @@ void union_sets(int a,int b){
   parent[b]=a ;
   size[a]+=size[b]  ;
 }
+// shorter implementation
+int p[mxN],s[mxN];
+void ms(int v){
+  p[v]=v;s[v]=1 ;
+}
+int fs(int v){
+  if(p[v]==v)
+    return v ;
+  return p[v]=fs(p[v]) ;
+}
+void uni(int a,int b){
+  a=fs(a) ;b=fs(b) ;
+  if(a==b)
+    return ;
+  if(s[b]>s[a])
+    swap(a,b);
+  p[b]=a ;s[a]+=s[b];
+}
