@@ -1,4 +1,3 @@
-//rmq 
 #include <bits/stdc++.h>
 using namespace std ;
 const int mxN =1e5+1;
@@ -11,15 +10,19 @@ signed main(){
     st[i][0]=a[i] ;
   for(int j=1;j<18;j++)
     for(int i=0;i+(1<<j)<=n;i++)
-      st[i][j]=__gcd(st[i][j-1],st[i+(1<<j-1)][j-1]) ;
+      st[i][j]=min(st[i][j-1],st[i+(1<<j-1)][j-1]) ;
   int q ;cin >> q ;
   while(q--){
-    int x;cin >> x ;
-    
+    int l,r ;
+    cin>> l >> r ;
     int ans=1e9 ;
-    for(int i=17;~i;--i)
-      if(l+(1<<i)<=r+1)
-        ans=min(ans,st[l][i]),l+=(1<<i) ;
+    // logn queries
+    // for(int i=17;~i;--i)
+    //   if(l+(1<<i)<=r+1)
+    //     ans=min(ans,st[l][i]),l+=(1<<i) ;
+    
+    int j =__lg(r-l+1) ;
+    ans=min(st[l][j],st[r-(1<<j)+1][j]) ;
     cout << ans << '\n'  ;
   }
 }
