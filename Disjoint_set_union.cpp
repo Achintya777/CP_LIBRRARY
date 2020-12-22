@@ -1,3 +1,27 @@
+//struct implementation 
+struct dsu{
+  int n ;
+  vector<int>p,s ;
+  dsu(int _n):n(_n){
+    p.resize(n) ;
+    s.assign(n,1) ;
+    iota(p.begin(),p.end(),0) ;
+  }
+  int fs(int x){
+    return (x==p[x]?x:p[x]=fs(p[x])) ;
+  }
+  bool uni(int a,int b){
+    a=fs(a) ;
+    b=fs(b) ;
+    if(a==b)
+      return 0  ;
+    if(s[b]>s[a])
+      swap(a,b) ;
+    p[b]=a ;
+    s[a]+=s[b] ;
+    return 1 ;
+  }
+};
 // basic DSU implemntation 
 int parent[mxN] ;
 int size[mxN] ;
