@@ -7,16 +7,14 @@ struct dsu{
     s.assign(n,1) ;
     iota(p.begin(),p.end(),0) ;
   }
-  int fs(int x){
+  int find(int x){
     return (x==p[x]?x:p[x]=fs(p[x])) ;
   }
-  bool uni(int a,int b){
-    a=fs(a) ;
-    b=fs(b) ;
-    if(a==b)
+  bool join(int x,int y){
+    if((x=find(x))==(y=find(y)))
       return 0  ;
-    if(s[b]>s[a])
-      swap(a,b) ;
+    if(s[y]>s[x])
+      swap(x,y) ;
     p[b]=a ;
     s[a]+=s[b] ;
     return 1 ;
