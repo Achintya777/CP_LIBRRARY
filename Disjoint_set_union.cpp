@@ -1,25 +1,3 @@
-//struct implementation 
-struct dsu{
-  int n ;
-  vector<int>p,s ;
-  dsu(int _n):n(_n){
-    p.resize(n) ;
-    s.assign(n,1) ;
-    iota(p.begin(),p.end(),0) ;
-  }
-  int find(int x){
-    return (x==p[x]?x:p[x]=fs(p[x])) ;
-  }
-  bool join(int x,int y){
-    if((x=find(x))==(y=find(y)))
-      return 0  ;
-    if(s[y]>s[x])
-      swap(x,y) ;
-    p[b]=a ;
-    s[a]+=s[b] ;
-    return 1 ;
-  }
-};
 // basic DSU implemntation 
 int parent[mxN] ;
 int size[mxN] ;
